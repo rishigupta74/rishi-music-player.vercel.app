@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishi-Music Player Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="utility.css">
+</head>
+
+<body class="bg-black text-white">
+
+    <div class="container flex">
+        <div class="left border">
+
+            <div class="close">
+                <img class="invert" src="close.svg" alt="close">
+            </div>
+
+            <div class="home bg-grey rounded m-1 p-1">
+                <div class="logo">
+                    <img class="invert" width="50" src="logo.svg" alt="Spotify">
+
+                </div>
+                <ul>
+                    <li><img class="invert" src="home.svg" alt="home">Home</li>
+                    <li><img class="invert" src="search.svg" alt="search">Search</li>
+                </ul>
+            </div>
+
+            <div class="library bg-grey rounded m-1 p-1">
+                <div class="heading">
+                    <img class="invert" src="playlist.svg" alt="library">
+                    <h2>Your Library</h2>
+                    <img class="invert" src="libraryplusbtn.svg" alt="add">
+                </div>
+                <div class="songList">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="right border bg-grey rounded">
+            <div class="header flex justify-between align-center">
+
+                <div class="nav flex align-center">
+                    <img class="hamburger invert" src="hamburger.svg" alt="hamburger">
+                    <button class="nav-btn">&lt;</button>
+                    <button class="nav-btn">&gt;</button>
+                </div>
+
+                <div class="buttons">
+                    <button class="signupbtn">Sign up</button>
+                    <button class="loginbtn">Log in</button>
+                </div>
+            </div>
+
+            <div class="spotifyPlaylists">
+                <h1>Spotify Playlists</h1>
+
+                <div class="cardContainer flex flex-wrap">
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="playbar flex justify-between align-center">
+        <div class="seekbar">
+            <div class="circle"></div>
+        </div>
+
+        <div class="songinfo">Select a Song</div>
+
+        <div class="songbuttons flex align-center">
+            <img id="previous" class="invert" src="prevsong.svg" alt="previous">
+            <img id="play" class="invert" src="pause.svg" alt="play">
+            <img id="next" class="invert" src="nextsong.svg" alt="next">
+        </div>
+
+        <div class="timevol flex align-center">
+            <div class="songtime">00:00 / 00:00</div>
+            <div class="volume flex align-center">
+                <img class="invert" src="volume.svg" alt="volume">
+                <div class="range">
+                    <input type="range" name="volume" id="vol" min="0" max="100" value="50">
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+/* Helper Background & Text Colors */
+.bg-black {
+    background-color: black;
+}
+
+.bg-grey {
+    background-color: #121212;
+}
+
+.text-white {
+    color: white;
+}
+
+/* Flexbox Helpers */
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* Borders & Spacing Helpers */
+.border {
+    border: 2px solid transparent;
+}
+
+.rounded {
+    border-radius: 8px;
+}
+
+.m-1 {
+    margin: 8px;
+}
+
+.p-1 {
+    padding: 12px;
+}

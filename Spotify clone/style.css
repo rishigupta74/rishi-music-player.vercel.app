@@ -1,0 +1,527 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Custom Dark Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #444 #000000;
+}
+
+.invert{
+    filter: invert(1);
+}
+/* 1. Main Layout Containers */
+.container {
+    height: calc(100vh - 80px);
+}
+
+.left {
+    width: 28vw;
+    padding: 5px;
+    position: relative;
+    transition: left 0.3s ease-in-out;
+}
+
+.right {
+    width: 72vw;
+    margin: 8px 8px 8px 0;
+    position: relative;
+    overflow-y: auto;
+}
+
+/* Sidebar List Styling */
+.home ul li {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding-top: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 🟢 Fix Giant Icons in Sidebar */
+.home ul li img {
+    width: 24px;
+    object-fit: contain;
+}
+
+.logo img {
+    width: 80px;
+}
+
+.heading {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    padding-top: 14px;
+    font-weight: bold;
+    align-items: center;
+    font-size: 13px;
+}
+
+.heading img {
+    width: 24px;
+}
+
+/* 2. Header & Spotify Cards Section */
+.header {
+    height: 70px;
+    background-color: #090909;
+    padding: 10px 20px;
+}
+
+.nav-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.signupbtn {
+    background-color: transparent;
+    color: #a7a7a7;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 15px;
+}
+
+.signupbtn:hover {
+    font-size: 1.03rem;
+    color: white;
+}
+
+.loginbtn {
+    background-color: white;
+    color: black;
+    border-radius: 21px;
+    padding: 12px 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.loginbtn:hover {
+    font-size: 15px;
+}
+
+/* Spotify Playlist Cards Grid */
+.spotifyPlaylists {
+    padding: 16px;
+}
+
+.spotifyPlaylists h1 {
+    padding: 16px 0;
+}
+
+.cardContainer {
+    gap: 15px;
+    max-height: 60vh;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 200px;
+    padding: 10px;
+    background-color: #252525;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+}
+
+
+.card:hover {
+    background-color: #383838;
+}
+
+.card-img-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.card-img-container img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.card h2 {
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.card p {
+    font-size: 12px;
+    color: #a7a7a7;
+    padding-top: 5px;
+}
+
+.play-btn {
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    background-color: #1ed760;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    opacity: 0;
+    transition: all 0.3s ease;
+    padding: 6px;
+}
+
+.card:hover .play-btn {
+    opacity: 1;
+    bottom: 10px;
+}
+
+/* 🎵 SONG LIST (YOUR LIBRARY SECTION) */
+.songList {
+    height: 50vh;
+    overflow-y: auto;
+    margin: 12px 0;
+}
+
+.songList ul {
+    padding: 0 8px;
+}
+
+.songList ul li {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background-color: #121212;
+    transition: all 0.2s ease-in-out;
+}
+
+.songList ul li:hover {
+    background-color: #282828;
+    border-color: #ffffff;
+}
+/* 🟢 Active Song Highlight Styles */
+.songList ul li.active-song {
+    background-color: #282828;
+    border-color: #1ed760;
+}
+
+.songList ul li.active-song .info div:first-child {
+    color: #1ed760;
+    font-weight: bold;
+}
+.songList .info {
+    font-size: 13px;
+    width: 140px;
+}
+
+.songList .info div {
+    word-break: break-all;
+}
+
+.playnow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.playnow span {
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.playnow img {
+    width: 20px;
+}
+
+/* 3. FIXED BOTTOM PLAYBAR */
+.playbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;
+    background-color: #000000;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1f1f1f;
+    z-index: 99;
+}
+
+.seekbar {
+    height: 6px;
+    width: 98%;
+    background-color: #333;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 1%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.seekbar:hover {
+    height: 8px;
+    background-color: #1ed760;
+}
+
+.circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    position: absolute;
+    top: -4px;
+    left: 0%;
+    transition: left 0.1s linear;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+.songinfo {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 🟢 Fix Play Button Shape */
+.songbuttons {
+    gap: 20px;
+}
+
+.songbuttons img {
+    width: 24px;
+    height: 24px;
+    /* Fix distortion */
+    object-fit: contain;
+    /* Icon proper shape mein rahega */
+    cursor: pointer;
+    opacity: 0.8;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.songbuttons img#play {
+    width: 36px;
+    height: 36px;
+    /* Bada wala circle perfect rahega */
+    opacity: 1;
+}
+
+.songbuttons img:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.songtime {
+    color: #b3b3b3;
+    font-size: 13px;
+    width: 120px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================
+   🔊 VOLUME CONTROL STYLING
+   ========================================== */
+.timevol {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 250px; /* Left side songinfo ko balance karne ke liye */
+    justify-content: flex-end;
+}
+
+.volume {
+    gap: 8px;
+    cursor: pointer;
+}
+
+.volume img {
+    width: 22px;
+
+}
+.volume img:hover{
+content: "volume";
+}
+.range input {
+    cursor: pointer;
+    accent-color: #1ed760; /* Spotify Green Color */
+    width: 80px;
+}
+
+/* 1. Base Transition dono containers par */
+.left {
+    transition: width 0.4s ease, padding 0.4s ease, opacity 0.3s ease;
+    overflow-x: hidden;
+    white-space: nowrap;
+    /* Taaki shrink hone par text toote nahi */
+}
+
+.right {
+    transition: width 0.4s ease;
+}
+
+/* 2. TABLETS & SMALL SCREENS (max-width: 1200px) */
+@media (max-width: 1200px) {
+
+    /* Default: Sidebar chupa rahega aur right part 100% jagah lega */
+    .left {
+        width: 0vw;
+        padding: 0;
+        opacity: 0;
+        margin: 0;
+    }
+
+    .right {
+        width: 100vw;
+    }
+
+    /* 🟢 ACTIVE STATE: Jab Hamburger Click Hoga (Push Effect) */
+    .container.sidebar-active .left {
+        width: 35vw;
+        /* Sidebar 35% jagah lega */
+        opacity: 1;
+        padding: 5px;
+    }
+
+    .container.sidebar-active .right {
+        width: 65vw;
+        /* Right part khisak kar 65% ho jayega */
+    }
+/* Jab Sidebar active ho jaye, toh hamburger gayab ho jaye */
+    .container.sidebar-active .hamburger {
+        display: none;
+    }
+    /* Show Buttons */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .close {
+         display:block;
+    }
+    
+      
+    }
+
+
+/* 3. MOBILE PHONES (max-width: 600px) */
+@media (max-width: 600px) {
+
+    /* Menu chupa hua state */
+    .left {
+        width: 0;
+        padding: 0;
+        opacity: 0;
+    }
+
+    .right {
+        width: 100vw;
+    }
+    .card{
+        width:85vw;
+        margin-bottom: 5vh;
+    }
+
+    /* 🟢 ACTIVE STATE: Menu Pura 100% Screen Cover Karega */
+    .container.sidebar-active .left {
+        width: 100vw;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        /* Sabse upar dikhega */
+        background-color: black;
+        opacity: 1;
+        padding: 10px;
+    }
+
+    .container.sidebar-active .right {
+        width: 100vw;
+        /* Right part peeche chupa rahega */
+    }
+
+    .playbar {
+        padding: 15px;
+        height: auto;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .songinfo,
+    .songtime {
+        width: 100%;
+        text-align: center;
+    }
+
+    .seekbar {
+        width: 90%;
+      
+        left: 5%;
+   
+        .timevol {
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    }
+
+
+}
